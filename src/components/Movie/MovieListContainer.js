@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
-import {getMovies} from '../../actions/movie';
+import {getMovies} from '../../actions/movielist';
 import {connect} from 'react-redux';
 import MovieList from './MovieList';
 
 class MovieListContainer extends Component {
 
     render() {
-        if (!this.props.movie) return 'Loading...'
+        if (!this.props.movielist) return 'Loading...'
 
         return <div>
-            <MovieList movie={this.props.movie}/>
+            <MovieList movielist={this.props.movielist}/>
         </div>
     }
     componentDidMount() {
@@ -18,7 +18,7 @@ class MovieListContainer extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        movie: state.movie,
+        movielist: state.movielist,
         jwt: state.jwt
     }
 }
