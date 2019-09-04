@@ -1,11 +1,11 @@
-import { FETCH_MOVIE_BY_ID} from '../actions/movie'
+import {FETCH_MOVIES, CREATE_MOVIE} from '../actions/movielist'
 
 const reducer = (state = [], action = {}) => {
     switch (action.type) {
-
-        case FETCH_MOVIE_BY_ID:
+        case FETCH_MOVIES:
             return action.payload
-
+        case CREATE_MOVIE:
+            return [action.payload, ...state]
         default:
             return state
     }

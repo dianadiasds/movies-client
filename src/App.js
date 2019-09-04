@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import LoginContainer from './components/Login/LoginFormContainer';
 import SignUpContainer from "./components/Login/SignUp";
 import MovieListContainer from "./components/Movie/MovieListContainer";
+import MovieDetailContainer from "./components/Movie/MovieDetailContainer";
 import { AUTH_TOKEN_KEY, loginUser } from "./actions/login";
 
 class App extends React.Component {
@@ -22,6 +23,7 @@ class App extends React.Component {
     return (
         <div className="App">
           <Route exact path="/" component={MovieListContainer}/>
+          <Route exact path="/movies/:movieId" component={MovieDetailContainer}/>
           <Route path='/login' component={LoginContainer}/>
           <Route path='/signup' component={SignUpContainer}/>
         </div>

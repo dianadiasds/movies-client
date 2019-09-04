@@ -1,43 +1,21 @@
 import * as request from 'superagent';
 
-export const FETCH_MOVIES = 'FETCH_MOVIES';
+export const FETCH_MOVIE_BY_ID = 'FETCH_MOVIE_BY_ID';
 
-export function setMovies(payload) {
+export function setMovieById(payload) {
     return {
-        type: FETCH_MOVIES,
+        type: FETCH_MOVIE_BY_ID,
         payload: payload,
     }
 }
 
-export function getMovies() {
+export function getMovieByID(movieId) {
     return function (dispatch) {
-        request(`http://localhost:5000/movies`)
+        request(`http://localhost:5000/movies/${movieId}`)
             .then(res => {
                 const body = res.body;
-                dispatch(setMovies(body))
+                dispatch(setMovieById(body))
             })
             .catch(console.error)
     }
 }
-
-export const CREATE_MOVIE = 'CREATE_MOVIE';
-
-export function newMovie(payload) {
-    return {
-        type: CREATE_MOVIE,
-        payload: payload,
-    }
-}
-export const createMovie = data => (dispatch, getState) => {
-    const state = getState()
-    const  jwt  = state.jwt
-    request
-        .post(`http://localhost:5000/movie`)
-        .set('Authorization', `Bearer ${jwt}`)
-        .send(data)
-        .then(response => {
-            const action = newMovie(response.body);
-            dispatch(action)
-        })
-        .catch(console.error)
-};
