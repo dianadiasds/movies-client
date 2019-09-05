@@ -6,8 +6,17 @@ import SignUpContainer from "./components/Login/SignUp";
 import MovieListContainer from "./components/Movie/MovieListContainer";
 import MovieDetailContainer from "./components/Movie/MovieDetailContainer";
 import CommentContainer from "./components/Comments/CommentContainer";
+
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+
+
+import { Container } from '@material-ui/core';
 import { AUTH_TOKEN_KEY, loginUser } from "./actions/login";
+
 class App extends React.Component {
+
 
   componentDidMount() {
     this.getAuthToken();
@@ -20,13 +29,24 @@ class App extends React.Component {
     }
   }
   render() {
-    return (
-        <div className="App">
+
+    return (<div>
+        <AppBar position="static">
+            <Toolbar>
+                <Typography variant="h6" >
+                    Brazilian Films App
+                </Typography>
+            </Toolbar>
+        </AppBar>
+        <Container fixed>
           <Route exact path="/" component={MovieListContainer}/>
           <Route exact path="/movies/:movieId" component={MovieDetailContainer}/>
           <Route path='/login' component={LoginContainer}/>
           <Route path='/signup' component={SignUpContainer}/>
-          <Route path='/comment/:movieId' component={CommentContainer}/>
+            <Route path='/comment/:movieId' component={CommentContainer}/>
+
+        </Container>
+
         </div>
     );
   }

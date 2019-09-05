@@ -3,6 +3,7 @@ import LoginForm from './LoginForm'
 import { connect } from 'react-redux'
 import { newLogin } from '../../actions/login'
 import { Link } from 'react-router-dom'
+import Container from "@material-ui/core/Container";
 
 class SignUpContainer extends React.Component {
     state = {
@@ -25,15 +26,15 @@ class SignUpContainer extends React.Component {
 
     render() {
         return (
-            <div>
-                <h3>New user</h3>
+            <Container maxWidth="sm">
+
                 <LoginForm
                     onSubmit={this.onSubmit}
                     onChange={this.onChange}
                     values={this.state}/>
-                <hr/>
-                <Link to='/'>Go back and Login!</Link>
-            </div>
+
+                <Link to='/login'>Go back and Login!</Link>
+            </Container>
         )
     }
 }
