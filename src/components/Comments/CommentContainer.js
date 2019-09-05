@@ -1,16 +1,16 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import {createComment} from '../../actions/comments'
-import CreateComment from './CreateComment'
+import React from 'react';
+import {connect} from 'react-redux';
+import {createComment} from '../../actions/comments';
+import CreateComment from './CreateComment';
 
 class CommentContainer extends React.Component {
     state = {
         comment: ''
     };
     componentDidMount() {
-        const ticketId = this.props.match.params.ticketId;
+        const movieId = this.props.match.params.movieId;
         this.setState({
-            ticketId: ticketId
+            movieId: movieId
         });
 
     }

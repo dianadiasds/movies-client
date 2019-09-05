@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -69,6 +70,7 @@ export default function MovieDetail(props) {
        console.log(movie.title)
     }
 
+
     return(
         <div>
         <div className={classes.root}>
@@ -94,7 +96,7 @@ export default function MovieDetail(props) {
                             </Grid>
                             <Grid item>
                                 <Typography variant="body2" style={{ cursor: 'pointer' }}>
-                                    Add a comment
+                                           <Link to={`/comment/${movie.id}`}>create comment</Link>
                                 </Typography>
                             </Grid>
                         </Grid>
