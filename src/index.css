@@ -5,7 +5,10 @@ body {
 }
 a{
   text-decoration: none;
-  color: dimgrey;
+  color: black;
+}
+a:hover{
+  color: dimgray;
 }
 header{
   background-color: dimgray;
@@ -13,4 +16,7 @@ header{
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.linkAccount{
+padding: 0px 50px 0px 0px;
 }

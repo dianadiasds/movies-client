@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {createComment} from '../../actions/comments';
 import CreateComment from './CreateComment';
+import { Redirect } from "react-router-dom";
 
 class CommentContainer extends React.Component {
     state = {
@@ -10,7 +11,7 @@ class CommentContainer extends React.Component {
     componentDidMount() {
         const movieId = this.props.match.params.movieId;
         this.setState({
-            movieId: movieId
+            movieId: movieId,
         });
 
     }
@@ -26,10 +27,14 @@ class CommentContainer extends React.Component {
 
         this.setState({
             comment: '',
+            redirect: "redirect"
         })
     };
 
     render() {
+        if (this.state.redirect) {
+            return <Redirect to={`/movies/4`}/>
+        }
         return (<CreateComment
             onSubmit={this.onSubmit}
             onChange={this.onChange}
