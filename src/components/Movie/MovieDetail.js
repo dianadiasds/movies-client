@@ -85,23 +85,23 @@ export default function MovieDetail(props) {
                         <Grid item xs container direction="column" spacing={2}>
                             <Grid item xs>
                                 <Typography gutterBottom variant="subtitle1">
-                                    {movie.title}
+                                    Title: {movie.title}
                                 </Typography>
                                 <Typography variant="body2" gutterBottom>
-                                    {movie.synopsis}
+                                   Synopsis: {movie.synopsis}
                                 </Typography>
                                 <Typography variant="body2" color="textSecondary">
-                                    {movie.director}
+                                   Director: {movie.director}
                                 </Typography>
                             </Grid>
                             <Grid item>
                                 <Typography variant="body2" style={{ cursor: 'pointer' }}>
-                                           <Link to={`/comment/${movie.id}`}>create comment</Link>
+                                           <Link to={`/comment/${movie.id}`}>Create comment</Link>
                                 </Typography>
                             </Grid>
                         </Grid>
                         <Grid item>
-                            <Typography variant="subtitle1">{movie.yearOfRelease}</Typography>
+                            Year: <Typography variant="subtitle1">{movie.yearOfRelease}</Typography>
                         </Grid>
                     </Grid>
                 </Grid>

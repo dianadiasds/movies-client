@@ -2,6 +2,7 @@ import React from 'react';
 import LoginForm from './LoginForm';
 import { connect } from 'react-redux';
 import { login } from '../../actions/login';
+import { Redirect } from "react-router-dom";
 
 class LoginFormContainer extends React.Component {
     state = {
@@ -23,6 +24,9 @@ class LoginFormContainer extends React.Component {
         })
     };
     render() {
+        if (this.state.redirect) {
+            return <Redirect to='/'/>
+        }
         return <LoginForm onSubmit={this.onSubmit} onChange={this.onChange}/>
     }
 }

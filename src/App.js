@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import {Link, Route} from 'react-router-dom';
 import { connect } from "react-redux";
 import LoginContainer from './components/Login/LoginFormContainer';
 import SignUpContainer from "./components/Login/SignUp";
@@ -10,6 +10,7 @@ import CommentContainer from "./components/Comments/CommentContainer";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 
 import { Container } from '@material-ui/core';
@@ -34,7 +35,8 @@ class App extends React.Component {
         <AppBar position="static">
             <Toolbar>
                 <Typography variant="h6" >
-                    Brazilian Films App
+                    <Link to={`/login`} className='linkAccount'><AccountCircleIcon /></Link>
+                    <Link to={`/`}>Brazilian Films App</Link>
                 </Typography>
             </Toolbar>
         </AppBar>
@@ -43,7 +45,7 @@ class App extends React.Component {
           <Route exact path="/movies/:movieId" component={MovieDetailContainer}/>
           <Route path='/login' component={LoginContainer}/>
           <Route path='/signup' component={SignUpContainer}/>
-            <Route path='/comment/:movieId' component={CommentContainer}/>
+          <Route path='/comment/:movieId' component={CommentContainer}/>
 
         </Container>
 
