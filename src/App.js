@@ -26,7 +26,7 @@ class App extends React.Component {
           <Route exact path="/movies/:movieId" component={MovieDetailContainer}/>
           <Route path='/login' component={LoginContainer}/>
           <Route path='/signup' component={SignUpContainer}/>
-          <Route path='/comment' component={CommentContainer}/>
+          <Route path='/comment/:movieId' component={CommentContainer}/>
         </div>
     );
   }
