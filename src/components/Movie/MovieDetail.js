@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 export default function MovieDetail(props) {
     const { comments, movie} = props;
@@ -29,6 +30,7 @@ export default function MovieDetail(props) {
         <p>{movie.yearOfRelease}</p>
         <p>{movie.synopsis}</p>
         <img src={movie.picture} alt={movie.title}/>
+        <Link to={`/comment/${movie.id}`}>create comment</Link>
         {items}
     </div>
 }
