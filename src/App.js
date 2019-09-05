@@ -5,8 +5,8 @@ import LoginContainer from './components/Login/LoginFormContainer';
 import SignUpContainer from "./components/Login/SignUp";
 import MovieListContainer from "./components/Movie/MovieListContainer";
 import MovieDetailContainer from "./components/Movie/MovieDetailContainer";
+import CommentContainer from "./components/Comments/CommentContainer";
 import { AUTH_TOKEN_KEY, loginUser } from "./actions/login";
-
 class App extends React.Component {
 
   componentDidMount() {
@@ -26,6 +26,7 @@ class App extends React.Component {
           <Route exact path="/movies/:movieId" component={MovieDetailContainer}/>
           <Route path='/login' component={LoginContainer}/>
           <Route path='/signup' component={SignUpContainer}/>
+          <Route path='/comment' component={CommentContainer}/>
         </div>
     );
   }
